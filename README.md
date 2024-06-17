@@ -7,5 +7,5 @@ L - LOVER,
 A - AFFECTION,
 M - MARRIAGE,
 E - ENEMY,
-S - SISTER
-The output you will be getting after entering yours and your crush's name will be any of the above mentioned relation
+S - SISTER.
+The output you will be getting after entering you and your crush's name will be any of the above mentioned relation
