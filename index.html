@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>FLAMES APP</title><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2e19c4a70e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <style>
+     body{ background-image: url("bg.jpeg");
+     height: 87.5vh;
+     background-size: cover;
+     background-repeat: no-repeat;
+    }
+    </style>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // https://dashboard.emailjs.com/admin/account
+            emailjs.init('2YyU4OeNGXSFH4sRH');
+        })();
+    </script>
+</head>
+<body>
+   <div class="container" id="main-container">
+    <h1>FLAMES <button id="history-btn" title="history"><i class="fas fa-history"></i></button> </h1>
+    <div id="history-container">
+        <h1 style="background-color: #d6d5d5;">HISTORY</h1>
+        <button id="close-btn"><i class="fa-solid fa-circle-xmark"></i></button>
+        <button id="clr-btn">clear</button>
+        <p id="history-content" style="font-family: 'Poppins', sans-serif;; font-weight: 100; font-size: medium; margin-top: 10px;"></p>
+    </div>
+   <div class="inputs">
+    <label for="user">Your Name:</label>
+    <input type="text" id="user" placeholder="your name" max="20">
+    <label for="crush">Your Crush Name:</label>
+    <input type="text" id="crush" placeholder="your crush name" max="20">
+   </div>
+   <button id="enter-btn">ENTER</button>
+   <div class="container-flames">
+    <div class="icons">F</div>
+    <div class="icons">L</div>
+    <div class="icons">A</div>
+    <div class="icons">M</div>
+    <div class="icons">E</div>
+    <div class="icons">S</div>
+   </div>
+   <p id="result">FLAMES</p>
+   <img src="assets/default1.gif" id="gif" alt="gif">
+   <h4>CREATED BY PRADHEEPRAJ</h4>
+   </div> 
+   <img src="assets/enemy2.gif" hidden>
+  <img src="assets/friend1.gif" hidden>
+  <img src="assets/sister1.gif" hidden>
+  <img src="assets/affection1.gif" hidden>
+  <img src="assets/love1.gif" hidden>
+  <img src="assets/marriage1.gif" hidden>
+</body>
+<script src="main.js"></script>
+ <script type="module">
+  // Import the functions you need from the SDKs you need
+    
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+  import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  
+
+  const firebaseConfig = {
+  apiKey: "AIzaSyAUqPHgMmJk1ghW0N6OaANa2KJThMp8UCY",
+  authDomain: "flames-app-8e0cf.firebaseapp.com",
+  projectId: "flames-app-8e0cf",
+  storageBucket: "flames-app-8e0cf.appspot.com",
+  messagingSenderId: "181335017130",
+  appId: "1:181335017130:web:4d8a2492bb3104246132d3",
+  measurementId: "G-8B2DSHHEEN"
+}; 
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+
+const butn = document.getElementById('btn')
+butn.addEventListener('click',() => {
+ setTimeout(() => {set(ref(db,'/user: ' + document.getElementById('user').value),{
+    Username: document.getElementById('user').value,
+    Crushname: document.getElementById('crush').value,
+    result: document.getElementById('result').innerHTML
+ });
+}) },3000) 
+</script> 
+
+</html>
